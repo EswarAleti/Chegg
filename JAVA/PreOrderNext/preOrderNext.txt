@@ -1,0 +1,34 @@
+preorderNext(p):
+	if p has a left child then
+		return p's left child
+	if p has only right child then
+		return p's right child
+	else:
+		parent = parent of p
+		if p is left child of parent and parent has right child then
+			return parent's right child
+		else:
+			while p is not left child of parent or parent doesn't have right child do
+				p=parent
+				parent=parent.parent
+			if parent has right child then
+				return parent's right child
+	return null
+	
+	
+preorderNext(p):
+	if p.left!=null:
+		return p.left
+	if p.right!=null:
+		return p.right
+	else:
+		parent = p.parent
+		if parent.left==p && parent.right!=null:
+			return parent.right
+		else:
+			while parent.left!=p || parent.right==null:
+				p=parent
+				parent=parent.parent
+			if parent.right!=null:
+				return parent.right
+	return null

@@ -1,0 +1,31 @@
+public void reverse()
+{
+	Node prev = null;
+	Node curr = head;
+	while(curr!=null)
+	{
+		Node next = curr.getNext();
+		curr.getNext(prev);
+		prev = curr;
+		curr = next;
+	}
+	head=prev;
+}
+public Node reverse(Node prev,Node curr)
+{
+	if(curr==null)
+		return null;
+	if(curr.getNext()==null)
+	{
+		curr.next=prev;
+		return curr;
+	}
+	Node next=curr.getNext();
+	Nove rev = reverse(curr,next);
+	curr.getNext(prev);
+	return rev
+}
+public void reverseRecursive()
+{
+	head = reverse(null,head);
+}
